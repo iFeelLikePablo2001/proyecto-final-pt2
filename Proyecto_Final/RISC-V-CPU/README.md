@@ -82,7 +82,7 @@ Cada enlace abre un Playground con el módulo y su testbench listos para ejecuta
 ## Estado de los módulos
 
 | Módulo | Archivo | Implementación | Verificación | Casos | Estado |
-|---|---|:-:|---|---|:-:|:-:|
+|---|---|---|---|---:|---|
 | ALU | `alu.sv` | `always_comb` con `case` sobre `ALUControl`; `Zero` se deriva del resultado | `alu_tb.sv`: ADD, SUB, AND, OR, cero, negativo y desbordamiento | 8 | Verificado |
 | Register File | `register_file.sv` | 32×32 bits, lectura combinacional, escritura síncrona con `RegWrite`, `x0` fijo en 0 | `register_file_tb.sv`: escritura/lectura, lectura doble, protección de `x0`, `RegWrite=0` | 4 | Verificado |
 | Immediate Generator | `imm_gen.sv` | Extensión de signo I-type (`ImmSrc=00`) y S-type (`ImmSrc=01`) | `imm_gen_tb.sv`: positivos, negativos, máximo y mínimo de ambos formatos | 8 | Verificado |
@@ -92,7 +92,7 @@ Cada enlace abre un Playground con el módulo y su testbench listos para ejecuta
 | Data Memory | `data_memory.sv` | 64 palabras, lectura combinacional, escritura síncrona con `MemWrite` | `data_memory_tb.sv`: escritura, conservación, `MemWrite=0` y temporización | 8 | Verificado |
 | Control Unit | `control_unit.sv` | Decodifica `opcode`/`funct3`/`funct7`; valores por defecto sin escritura | `control_unit_tb.sv`: 7 instrucciones y 3 casos no soportados | 10 | Verificado |
 | Processor | `processor.sv` | Integra PC, memorias, control, banco de registros, `imm_gen`, 2 MUX y ALU | `processor_tb.sv`: programa de 12 instrucciones, PC y valores de registros y memoria | 27 | Verificado |
-| **Total** |-|-|-|-| **83** | **83/83 PASS** |
+| **Total** | — | — | — | **83** | **83/83 PASS** |
 
 ---
 
